@@ -19,7 +19,7 @@ if (!validLength.includes(words)) {
 
 const l1Url = `https://eth-goerli.g.alchemy.com/v2/${process.env.GOERLI_ALCHEMY_KEY}`
 // const l2Url = `https://opt-goerli.g.alchemy.com/v2/${process.env.OP_GOERLI_ALCHEMY_KEY}`
-const l2Url = `http://8.219.129.226:8545`
+const l2Url = `${process.env.L2URL}`
 
 
 // Global variable because we need them almost everywhere
@@ -82,7 +82,7 @@ const setup = async() => {
 
 const gwei = BigInt(1e9)
 const eth = gwei * gwei   // 10^18
-const centieth = eth/1000n
+const centieth = eth
 
 
 const reportBalances = async () => {
@@ -99,7 +99,9 @@ const depositETH = async () => {
   await reportBalances()
   const start = new Date()
 
-  const response = await crossChainMessenger.depositETH(10000000n * gwei)
+  const response = await crossChainMessenger.depositETH(500000000n * gwei, {
+      recipient: '0x2B88c63Ecb61b6416cE6c2d25fd264bea2342365'
+  })
   console.log(`Transaction hash (on L1): ${response.hash}`)
   await response.wait()
   console.log("Waiting for status to change to RELAYED")
@@ -122,10 +124,10 @@ const withdrawETH = async () => {
   await reportBalances()
 
   const response = await crossChainMessenger.withdrawETH(centieth, {
-      recipient: '0x1e6c765B2fFf66D9F672c20640A136730EE5E2D1',
-      overrides: {
-          gasLimit: 5000000,
-      }
+      recipient: '0x2B88c63Ecb61b6416cE6c2d25fd264bea2342365',
+      // overrides: {
+      //     gasLimit: 5000000,
+      // }
   })
   console.log(`Transaction hash (on L2): ${response.hash}`)
   console.log(`\tFor more information: https://goerli-optimism.etherscan.io/tx/${response.hash}`)
@@ -159,8 +161,8 @@ const withdrawETH = async () => {
 
 const main = async () => {
     await setup()
-    // await depositETH()
-    await withdrawETH()
+    await depositETH()
+    // await withdrawETH()
     // await depositERC20()
     // await withdrawERC20()
 }  // main
