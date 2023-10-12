@@ -10,5 +10,8 @@
   },
   "scripts": {
     "estimate": "node gas.js"
+  },
+  "devDependencies": {
+    "yargs": "^17.7.2"
   }
 }
