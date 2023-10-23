@@ -17,7 +17,7 @@ if (!validLength.includes(words)) {
    process.exit(-1)
 }
 
-const l1Url = `https://eth-goerli.g.alchemy.com/v2/${process.env.GOERLI_ALCHEMY_KEY}`
+const l1Url = `https://eth-sepolia.g.alchemy.com/v2/${process.env.GOERLI_ALCHEMY_KEY}`
 // const l2Url = `https://opt-goerli.g.alchemy.com/v2/${process.env.OP_GOERLI_ALCHEMY_KEY}`
 const l2Url = `${process.env.L2URL}`
 
@@ -100,7 +100,7 @@ const depositETH = async () => {
   const start = new Date()
 
   const response = await crossChainMessenger.depositETH(500000000n * gwei, {
-      recipient: '0x2B88c63Ecb61b6416cE6c2d25fd264bea2342365'
+      recipient: '0xC50Fd4a5a738cB02FEb9aF4F3C9147a4c234385d'
   })
   console.log(`Transaction hash (on L1): ${response.hash}`)
   await response.wait()
