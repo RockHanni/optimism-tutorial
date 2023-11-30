@@ -189,8 +189,9 @@ const withdrawERC20 = async () => {
 
 const main = async () => {
     await setup()
-    await depositERC20()
-    await withdrawERC20()
+  await reportERC20Balances()
+    // await depositERC20()
+    // await withdrawERC20()
 }  // main
 
 
