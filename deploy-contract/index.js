@@ -30,10 +30,11 @@ const deploy = async () => {
     const factoryContract = optimismMintableERC20Factory();
     // console.log(factoryContract.interface.fragments)
     try {
-        const tx = await factoryContract.createOptimismMintableERC20(
+        const tx = await factoryContract.createOptimismMintableERC20WithDecimals(
             process.env.L1_TOKEN_ADDRESS,
             process.env.TOKEN_NAEME,
-            process.env.TOKEN_SYMBOL
+            process.env.TOKEN_SYMBOL,
+            6
         );
         console.log(tx);
         const rcpt = await tx.wait();

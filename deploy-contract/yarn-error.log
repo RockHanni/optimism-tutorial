@@ -1,0 +1,41 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/21.1.0/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @eth-optimism
+
+PATH: 
+  /opt/homebrew/opt/postgresql@12/bin:/opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/go/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/huangxuchen/.cargo/bin:/Users/huangxuchen/my_proj/optimism-tutorial/node_modules/.bin:/Users/huangxuchen/.foundry/bin:/Users/huangxuchen/Library/Application Support/JetBrains/Toolbox/scripts:/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/bin:/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/lib/tools.jar:/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home/lib/dt.jar
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  21.1.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@eth-optimism: Request "https://registry.yarnpkg.com/@eth-optimism" returned a 405
+      at params.callback [as _callback] (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:66154:18)
+      at self.callback (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:140890:22)
+      at Request.emit (node:events:515:28)
+      at Request.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:141862:10)
+      at Request.emit (node:events:515:28)
+      at IncomingMessage.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:629:28)
+      at IncomingMessage.emit (node:events:527:35)
+      at endReadableNT (node:internal/streams/readable:1589:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "deploy-contract",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
